@@ -123,6 +123,11 @@ namespace NoesisLabs.Fiddler.HawkAddOn
 
 				Task.WaitAll(client.CreateClientAuthorizationAsync(new WebApiRequestMessage(request)));
 
+				if (session.oRequest.headers.Exists(HttpRequestHeader.Authorization.ToString()))
+				{
+					session.oRequest.headers.Remove(HttpRequestHeader.Authorization.ToString());
+				}
+
 				session.oRequest.headers.Add(HttpRequestHeader.Authorization.ToString(), request.Headers.Authorization.ToString());
 			}
 		}
