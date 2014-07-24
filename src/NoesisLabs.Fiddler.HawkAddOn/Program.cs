@@ -3,6 +3,7 @@ using System;
 using System.Drawing;
 using System.Net;
 using System.Net.Http;
+using System.Reflection;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Thinktecture.IdentityModel.Hawk.Client;
@@ -16,6 +17,8 @@ namespace NoesisLabs.Fiddler.HawkAddOn
 	public class Program : IAutoTamper    // Ensure class is public, or Fiddler won't see it!
 	{
 		private const string COMPOSER_KEY = "X-From-Builder";
+		private const string ICON_KEY = "hawk";
+		private const string ICON_RESOURCE_STREAM_NAME = "NoesisLabs.Fiddler.HawkAddOn.hawk.ico";
 
 		private ComboBox algorithmComboBox;
 		private CheckBox enableAuthCheckBox;
@@ -36,7 +39,13 @@ namespace NoesisLabs.Fiddler.HawkAddOn
 
 		public void OnLoad()
 		{
+			var icon = new Icon(typeof(Program).Assembly.GetManifestResourceStream(ICON_RESOURCE_STREAM_NAME));
+
+			FiddlerApplication.UI.imglSessionIcons.Images.Add(ICON_KEY, icon);
+
 			var page = new TabPage("Hawk Authentication");
+
+			page.ImageIndex = FiddlerApplication.UI.imglSessionIcons.Images.IndexOfKey(ICON_KEY);
 
 			var panel = new TableLayoutPanel() { Dock = DockStyle.Fill, RowCount = 5, ColumnCount = 2 };
 
