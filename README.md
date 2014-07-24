@@ -14,9 +14,9 @@ into `C:\Program Files\Fiddler2\Scripts` and restart Fiddler.
 Usage
 ----------
 
-1. Navigate to `Hawk Authentication` tab within Fiddler
-2. Check the `Enable` checkbox to begin including Hawk Authentication headers
-3. Check the `Composer Only` checkbox if you would like to limit the Hawk Authentication header inclusion to requests sent via Fiddler's Composer -> Parsed tool.
-4. Choose the correct encryption algorithm for your authentication provider
-5. Enter a valid Hawk Id for your authentication provider
-6. Enter a valid Hake Key for your authentication provider
+1. Navigate to *Hawk Authentication* tab within Fiddler
+2. Check the *Enable Checkbox* to begin including Hawk Authentication headers
+3. Check the *Composer Only* checkbox if you would like to limit the Hawk Authentication header inclusion to requests sent via Fiddler's Composer -> Parsed tool.
+4. Choose encryption *Algorithm* used by your authentication provider
+5. Enter a valid *Hawk Id* for your authentication provider
+6. Enter a valid *Hawk Key* for your authentication provider
